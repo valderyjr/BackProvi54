@@ -1,6 +1,7 @@
 const db = require("./config/dbConnect")
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 //Importando rotas
 const routes = require('./routes/index')
@@ -12,6 +13,7 @@ db.once("open", () => {
 })
 
 app.use(express.json())
+app.use(cors())
 
 routes(app)
 
